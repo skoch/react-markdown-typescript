@@ -1,0 +1,42 @@
+{
+  "name": "react-markdown",
+  "version": "1.0.0",
+  "description": "test for TS on code block",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run build & npm run pack",
+    "pack": "npx webpack",
+    "build": "npx tsc",
+    "server": "browser-sync ./www -w --port 8080",
+    "pretty-quick": "pretty-quick"
+  },
+  "keywords": [
+    "typescript",
+    "react-markdown"
+  ],
+  "author": "Stephen Koch <stephen.koch@postlight.com>",
+  "license": "ISC",
+  "dependencies": {
+    "markdown": "^0.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-markdown": "^6.0.2",
+    "rehype-raw": "^5.1.0",
+    "remark-gfm": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^17.0.5",
+    "browser-sync": "^2.26.14",
+    "husky": "^6.0.0",
+    "prettier": "^2.3.0",
+    "pretty-quick": "^3.1.0",
+    "typescript": "^4.2.4",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}

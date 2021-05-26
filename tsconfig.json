@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "jsx": "react",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    /* Default flags */
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "watch": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
