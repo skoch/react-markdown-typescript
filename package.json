@@ -4,10 +4,10 @@
   "description": "test for TS on code block",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run build & npm run pack",
+    "dev": "npm run build & npm run pack & npm run server",
     "pack": "npx webpack",
     "build": "npx tsc",
-    "server": "browser-sync ./www -w --port 8080",
+    "server": "browser-sync ./www -w --no-notify --port 8080",
     "pretty-quick": "pretty-quick"
   },
   "keywords": [

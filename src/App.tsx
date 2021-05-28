@@ -1,6 +1,7 @@
 import React from 'react';
 import gfm from 'remark-gfm';
 import { render } from 'react-dom';
+import rehypeRaw from 'rehype-raw';
 import {
   Components,
   CodeComponent,
@@ -9,6 +10,12 @@ import {
 import ReactMarkdown from 'react-markdown';
 
 const markdown = `A paragraph with *emphasis* and **strong importance**.
+
+<br />
+This
+<br />
+That
+<br />
 
 > A block quote with ~strikethrough~ and a URL: https://reactjs.org.
 
@@ -23,7 +30,7 @@ A table with alignment:
 | Header      | Title       | Here's this   |
 | Paragraph   | Text        | And more      |
 
-## normal
+## Simple JSX
 ~~~jsx
 // this is code we want to transpile and render
 // and we want to allow editing
@@ -31,13 +38,13 @@ const name = 'normal';
 <Testing name={name} />
 ~~~
 
-## static
+## Static Code
 ~~~jsx static
 // this is static code we want to show
 const name = 'static';
 ~~~
 
-## noeditor
+## Simple JSX without editor
 ~~~jsx noeditor
 // this is code we want to transpile and render
 // but we do not want to allow editing
@@ -64,6 +71,7 @@ const Code: CodeComponent = ({
   className,
   ...props
 }): React.ReactNode => {
+  console.log('node', node);
   const meta = String(node.data?.meta);
   const isStatic = meta.includes('static');
   const noeditor = meta.includes('noeditor');
@@ -93,6 +101,7 @@ render(
   <ReactMarkdown
     components={components}
     remarkPlugins={[gfm]}
+    // rehypePlugins={[rehypeRaw]}
     children={markdown}
   />,
   document.getElementById('app'),
